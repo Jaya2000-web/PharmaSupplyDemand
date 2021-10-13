@@ -1,0 +1,83 @@
+<div class="form-group row">
+    <form #MedicineDemandForm="ngForm" (ngSubmit)="Adddemand(MedicineDemandForm.value)">
+    <label class="col-md-2 col-form-label">Medicine</label>
+    <div class="col-sm-10">
+        <input id="Medicine" type="text" class="form-control" [(ngModel)]="medicineDemand.medicine"
+        name="Medicine" placeholder="Enter Medicine Name">
+
+        <input id="DemandCount" type="text" class="form-control" [(ngModel)]="medicineDemand.demandCount" 
+        name="DemandCount" placeholder="Enter the Count">
+        <button type="submit">Submit</button>
+    </div>
+</form>
+</div>
+
+<table class="table table-striped" *ngIf= "AddMessage"> 
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>PharmacyName</th>
+            <th>MedicineName</th>
+            <th>SupplyCount</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dataItem of DemandList1 | slice:-3">
+            <td>{{dataItem.id}}</td>
+            <td>{{dataItem.pharmacyName}}</td>
+            <td>{{dataItem.medicineName}}</td> 
+            <td>{{dataItem.supplyCount}}</td>
+        </tr>
+    </tbody>
+</table> 
+
+
+
+
+
+<!-- {{DemandList | json}}  -->
+
+<!-- {{DemandList1 | json}} -->
+
+
+
+
+
+<!-- <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+
+</script>
+
+<body>
+    <script>
+        function constructTable(selector){
+            var cols = Headers(DemandList, selector);
+            for(var i =0; i<DemandList.length; i++){
+                var row = $("<tr/>");
+                for(var colIndex =0; colIndex<cols.length;colIndex++){
+                    var val = DemandList[i][cols[colIndex]];
+
+                    if(val == null) val = "";
+                        row.append($('<td>').html(val));
+                }
+                $(selector).append(row);
+            }
+
+        }
+
+        function Headers(DemandList, selector){
+            var columns =[];
+            var header = $('<tr/>');
+
+            for (var i=0; i<DemandList.length;  i++){
+                var row = DemandList[i];
+
+                for(var k in row){
+                    if($.inArray(k,columns)==-1)
+                    header.append($('<th/>').html(k));
+                }
+            }
+            $(selector).append(header);
+            return columns;
+        }
+    </script>
+</body> -->
