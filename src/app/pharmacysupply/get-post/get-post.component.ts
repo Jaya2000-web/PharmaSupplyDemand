@@ -42,13 +42,7 @@ DemandList:MedicineDemandModel={
     this.refreshSupplyList();
   }
 
-  /*refreshDemand(Demand){
-    
-    this.service.AddDemand(Demand).subscribe(data=>{
-      this.refreshSupplyList();
-      console.log(data);
-    })
-  }*/
+  
   
  refreshSupplyList(){
     this.service.GetSupplyList().subscribe((data)=>
@@ -56,6 +50,7 @@ DemandList:MedicineDemandModel={
       //console.log(this.DemandList);
 }
 AddMessage:string="";
+ErrorMessage:string="";
 
   Adddemand(Demand : MedicineDemand):void{
     this.service.AddDemand(Demand).subscribe(data=>{
@@ -63,15 +58,11 @@ AddMessage:string="";
       this.refreshSupplyList();
       console.log(this.DemandList);
       this.AddMessage="Demand is successfully added";
-      //console.log(data);
-      //console.log(Demand);
-      //console.log(".ts");
+      
+    },
+    err => {
+      this.ErrorMessage = err.error;
     })
     }
-    /*err => {
-      this.errorMessage = err.error;
-      console.log(this.errorMessage);
-    })*/
-  
 }
 

@@ -17,7 +17,6 @@ readonly APIurl="https://localhost:44388/api/PharmaMedicineSupply";
   }
 
   AddDemand(Demand:MedicineDemand):Observable<MedicineDemandModel>{
-    debugger;
     //console.log(Demand);
     //console.log("Servicelayer");
     return this.http.post<MedicineDemandModel>("https://localhost:44388/api/PharmaMedicineSupply/MedicineDemand/",Demand);
